@@ -1,5 +1,5 @@
-Script to fix SSI include paths.
-================================
+Fix SSI include
+===============
 
 SSI disallows ".." in include paths, and while Apache doesn't seem to
 mind them that much, nginx refuses to include such a file. This script
