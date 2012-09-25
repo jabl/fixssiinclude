@@ -24,6 +24,8 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 Fix SSI include paths to not include a .., which is forbidden.
+
+https://github.com/jabl/fixssiinclude
 """
 
 import os
