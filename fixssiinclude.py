@@ -38,6 +38,9 @@ def fix_ssi_include(fname, doc_root):
     droot = os.path.abspath(doc_root)
     # File dir, relative to doc root
     cp = os.path.commonprefix([file_dir, droot])
+    if cp != droot:
+        raise Exception('File %s not under document root %s' 
+                        % (os.path.abspath(fname), droot))
     file_dir_rel = file_dir[len(cp):]
     f = open(fname)
     ft = tempfile.NamedTemporaryFile(dir=file_dir, delete=False)
@@ -57,6 +60,9 @@ def fix_ssi_include(fname, doc_root):
         fip = os.path.abspath(fip)
         # Remove docroot
         cp = os.path.commonprefix([fip, droot])
+        if cp != droot:
+            raise Exception('File %s included from %s not under document \
+root %s' % (fip, os.path.abspath(fname), droot))
         fip = fip[len(cp):]
         # Is the path relative to the dir of the file?
         cp = os.path.commonprefix([file_dir_rel, fip])
