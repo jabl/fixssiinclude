@@ -61,6 +61,7 @@ def fix_ssi_include(fname, doc_root):
         # Remove docroot
         cp = os.path.commonprefix([fip, droot])
         if cp != droot:
+            os.remove(ft.name)
             raise Exception('File %s included from %s not under document \
 root %s' % (fip, os.path.abspath(fname), droot))
         fip = fip[len(cp):]
