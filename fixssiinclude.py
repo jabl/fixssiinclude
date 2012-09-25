@@ -45,7 +45,7 @@ def fix_ssi_include(fname, doc_root):
     f = open(fname)
     ft = tempfile.NamedTemporaryFile(dir=file_dir, delete=False)
     modified = False
-    incre = re.compile('<!--\s*#include\s*(?:virtual|file)\s*=\s*"(.*?)"', 
+    incre = re.compile('<!--#\s*include\s*(?:virtual|file)\s*=\s*"(.*?)"', 
                        re.DOTALL)
     fdat = f.read()
     sstart = 0
